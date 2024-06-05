@@ -188,3 +188,7 @@
 .top5 .hiddenMenu:hover {
   background-color: #000000;
 }
+
+.italic {
+  font-style: italic;
+}

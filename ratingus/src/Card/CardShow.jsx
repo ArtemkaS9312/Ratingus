@@ -192,8 +192,8 @@ function CardShow() {
                                     <h2>{user.full_name}</h2>
                                     <h2 style={{ fontSize: calculateFontSize(user.department) }}>{user.department}</h2>
                                 </div>
-                                <p>Дата рождения: {formatDate(user.birth_date)}</p>
-                                <p>Телефон: {user.phone}</p>
+                                <p className={styles.italic}>Дата рождения: {formatDate(user.birth_date)}</p>
+                                <p className={styles.italic}>Телефон: {user.phone}</p>
                                 <p className={styles.ratingpos}>Рейтинг: <span >{user.rating_position}</span></p>
                             </motion.div>
                         ))}
