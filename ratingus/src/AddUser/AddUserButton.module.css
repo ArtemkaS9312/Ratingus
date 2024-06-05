@@ -1,0 +1,23 @@
+.all {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  }
+  
+.but {
+  width: 100px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 900;
+  transition: 0.2s;
+  border-radius: 50%;
+  height: 100px;
+  }
+  
+.but:hover {
+  transform: scale(0.9);
+}
+  

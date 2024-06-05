@@ -1,0 +1,81 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center; 
+  margin-bottom: 50px;
+}
+
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 800px;
+}
+
+.checkboxLabel {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.checkboxLabel:hover {
+  scale: 98%;
+}
+
+.checkbox {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  border: none;
+}
+
+.ratung {
+  width: 100px;
+  border: 3px solid #000000;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.toggleButton {
+  padding: 10px;
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: 0.2s;
+  font-weight: 900;
+  font-size: 20px;
+  
+}
+
+.toggleButton:hover {
+  scale: 90%;
+}
+
+.displayflex {
+  display: flex;
+  gap: 20px;
+}

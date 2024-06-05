@@ -1,0 +1,19 @@
+.biba {
+    width: 10%;
+    height: 50px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 50%;
+    transition: 0.2s;
+    margin-right: 16%;
+}
+
+.biba:hover {
+    transform: scale(1.05);
+    transform: rotate(-4deg);
+}
+

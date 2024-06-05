@@ -1,0 +1,107 @@
+.latterR {
+  font-size: 41px;
+}
+
+.latterA {
+  font-size: 46px;
+}
+
+.latterT {
+  font-size: 51px;
+}
+
+.latterI {
+  font-size: 56px;
+}
+
+.latterN {
+  font-size: 61px;
+}
+
+.latterG {
+  font-size: 66px;
+}
+
+.latterU {
+  font-size: 71px;
+}
+
+.latterS {
+  font-size: 76px;
+}
+
+.All {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  padding-bottom: 0;
+  text-align: center;
+  color: white;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.2s;
+  transform-origin: center;
+}
+  
+h1:hover {
+  transform: rotate(4deg) translateX(-1.3px); 
+}
+.block {
+  margin-top: 2%;
+  cursor: default;
+  height: 80px;
+  background-color: rgb(0, 0, 0);
+  padding: 0;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  max-width: 400px;
+}
+
+.block {
+  cursor: default;
+  margin-top: 2%;
+  height: 80px;
+  background-color: rgb(0, 0, 0);
+  max-width: 400px;
+  padding: 0;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block:hover {
+  transform: rotate(-4deg);
+}
+ 
+@media only screen and (max-width: 600px) {
+    .latter-r {
+      font-size: 30px;
+    }
+    .latter-a {
+      font-size: 35px;
+    }
+    .latter-t {
+      font-size: 40px;
+    }
+    .latter-i {
+      font-size: 45px;
+    }
+    .latter-n {
+      font-size: 50px;
+    }
+    .latter-g {
+      font-size: 55px;
+    }
+    .latter-u {
+      font-size: 60px;
+    }
+    .latter-s {
+      font-size: 65px;
+    }
+    .block {
+      margin-left: 10%;
+    }
+}
+  
