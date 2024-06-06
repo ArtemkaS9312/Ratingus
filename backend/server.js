@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const { Pool } = require('pg');
+const router = require('./router/index')
 
 const app = express();
 const port = 5000;
@@ -15,6 +17,10 @@ const pool = new Pool({
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser()); 
+app.use('/api', router);
+
+
 
 app.get('/api/users', async (req, res) => {
   try {
