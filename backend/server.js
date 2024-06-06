@@ -112,23 +112,6 @@ app.get('/api/users/count', async (req, res) => {
   }
 });
 
-app.post('/api/auth/login', async (req, res) => {
-  const { username, password } = req.body;
-  try {
-      const result = await pool.query(
-          'SELECT * FROM admins WHERE username = $1 AND password = $2',
-          [username, password]
-      );
-      if (result.rows.length > 0) {
-          res.status(200).json({ message: 'Authorization successful' });
-      } else {
-          res.status(401).json({ message: 'Invalid credentials' });
-      }
-  } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
-  }
-});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
