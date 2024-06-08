@@ -3,6 +3,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { Pool } = require('pg');
 const router = require('./router/index')
+require('dotenv').config(); // Load environment variables
 
 const app = express();
 const port = 5000;
