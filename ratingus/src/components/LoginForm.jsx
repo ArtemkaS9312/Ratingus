@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../main"; 
+import { Context } from "../main";
+import styles from "./LoginForm.module.css"; 
 
 const LoginForm = ({ setIsLoggedIn }) => {
     const [email, setEmail] = useState('');
@@ -8,32 +9,36 @@ const LoginForm = ({ setIsLoggedIn }) => {
 
     const handleLogin = async () => {
         await store.login(email, password);
-        setIsLoggedIn(true); 
+        setIsLoggedIn(true);
     };
 
     const handleRegistration = async () => {
         await store.registration(email, password);
-        setIsLoggedIn(true); 
+        setIsLoggedIn(true);
     };
 
     return (
-        <div>
-            <input 
-                onChange={e => setEmail(e.target.value)}
-                value={email}
-                type="text" 
-                placeholder="Email" 
-            />
+        <div className={styles.addUserForm}>
+            <form>
+                <input 
+                    onChange={e => setEmail(e.target.value)}
+                    value={email}
+                    type="text"
+                    placeholder="Email"
+                    className={styles.input}
+                />
 
-            <input 
-                onChange={e => setPassword(e.target.value)}
-                value={password}
-                type="password" 
-                placeholder="Пароль" 
-            />
+                <input 
+                    onChange={e => setPassword(e.target.value)}
+                    value={password}
+                    type="password"
+                    placeholder="Пароль"
+                    className={styles.input}
+                />
 
-            <button onClick={handleLogin}>Логин</button>
-            <button onClick={handleRegistration}>Регистрация</button> 
+                <button className={styles.add} onClick={handleLogin} type="button">Логин</button>
+                <button className={styles.add} onClick={handleRegistration} type="button">Регистрация</button>
+            </form>
         </div>
     );
 };
