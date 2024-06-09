@@ -2,10 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { Pool } = require('pg');
-const router = require('./router/index')
-require('dotenv').config(); 
+const router = require('./router/index');
+require('dotenv').config();
 const errorMiddleware = require('./middlewares/error-middleware');
-
 
 const app = express();
 const port = 5000;
@@ -18,46 +17,48 @@ const pool = new Pool({
   port: 5432,
 });
 
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:5173'
+}));
 app.use(express.json());
-app.use(cookieParser()); 
+app.use(cookieParser());
 app.use('/api', router);
 app.use(errorMiddleware);
 
-
 app.get('/api/users', async (req, res) => {
   try {
-      let query = 'SELECT * FROM users';
-      const queryParams = [];
-      const conditions = [];
+    let query = 'SELECT * FROM users';
+    const queryParams = [];
+    const conditions = [];
 
-      if (req.query.minRating) {
-          conditions.push(`rating_position >= $${queryParams.length + 1}`);
-          queryParams.push(req.query.minRating);
-      }
+    if (req.query.minRating) {
+      conditions.push(`rating_position >= $${queryParams.length + 1}`);
+      queryParams.push(req.query.minRating);
+    }
 
-      if (req.query.maxRating) {
-          conditions.push(`rating_position <= $${queryParams.length + 1}`);
-          queryParams.push(req.query.maxRating);
-      }
+    if (req.query.maxRating) {
+      conditions.push(`rating_position <= $${queryParams.length + 1}`);
+      queryParams.push(req.query.maxRating);
+    }
 
-      if (req.query.departments) {
-          const departments = req.query.departments.split(',');
-          conditions.push(`department IN (${departments.map((_, i) => `$${i + queryParams.length + 1}`).join(', ')})`);
-          queryParams.push(...departments);
-      }
+    if (req.query.departments) {
+      const departments = req.query.departments.split(',');
+      conditions.push(`department IN (${departments.map((_, i) => `$${i + queryParams.length + 1}`).join(', ')})`);
+      queryParams.push(...departments);
+    }
 
-      if (conditions.length > 0) {
-          query += ' WHERE ' + conditions.join(' AND ');
-      }
+    if (conditions.length > 0) {
+      query += ' WHERE ' + conditions.join(' AND ');
+    }
 
-      query += ' ORDER BY rating_position DESC';
+    query += ' ORDER BY rating_position DESC';
 
-      const result = await pool.query(query, queryParams);
-      res.json(result.rows);
+    const result = await pool.query(query, queryParams);
+    res.json(result.rows);
   } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server Error');
+    console.error(err.message);
+    res.status(500).send('Server Error');
   }
 });
 
@@ -120,7 +121,6 @@ app.get('/api/users/count', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
