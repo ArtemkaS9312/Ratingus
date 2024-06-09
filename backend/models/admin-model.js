@@ -38,13 +38,7 @@ const Admin = sequelize.define('Admins', {
         type: DataTypes.STRING,
         required: true
     },
-    isActivated: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    },
-    activationLink: {
-        type: DataTypes.STRING
-    }
+
 });
 
 module.exports = Admin;

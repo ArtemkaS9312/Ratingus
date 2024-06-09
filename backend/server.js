@@ -3,7 +3,9 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { Pool } = require('pg');
 const router = require('./router/index')
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); 
+const errorMiddleware = require('./middlewares/error-middleware');
+
 
 const app = express();
 const port = 5000;
@@ -20,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser()); 
 app.use('/api', router);
-
+app.use(errorMiddleware);
 
 
 app.get('/api/users', async (req, res) => {

@@ -24,6 +24,7 @@ const sequelize = new Sequelize({
 //   .catch(err => {
 //     console.error('Unable to connect to the database:', err);
 //   });
+
 const Token = sequelize.define('Token', {
     admin: {
         type: DataTypes.INTEGER, 
